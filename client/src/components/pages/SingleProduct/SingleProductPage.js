@@ -1,10 +1,11 @@
 import React from 'react';
+import PageTitle from '../../common/PageTitle/PageTitle';
+import SingleProductContainer from '../../features/SingleProduct/SingleProductContainer';
 
-const SingleProductPage = () => (
+const SingleProductPage = (props) => (
   <div>
-    <h1>
-      Single Product
-    </h1>
+    <PageTitle>Single Product</PageTitle>
+    <SingleProductContainer id={props.match.params.id} />
   </div>
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Button from '../../common/Button/Button';
+import { Link } from 'react-router-dom';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import './ProductSummary.scss'
 import HtmlBox from '../../common/HtmlBox/HtmlBox';
@@ -9,9 +10,9 @@ const ProductSummary = ({ id, title, content }) => (
   <article className="product-summary">
     <SmallTitle>{title}</SmallTitle>
     <HtmlBox>{content}</HtmlBox>
-    <Button variant="primary">
+    <Button variant="primary"><Link to={`/products/${id}`}>
       More Information
-    </Button>
+    </Link></Button>
   </article>
 );
 
