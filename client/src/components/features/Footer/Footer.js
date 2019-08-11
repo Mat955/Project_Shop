@@ -1,19 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import MainMenu from '../../layout/MainMenu/MainMenu';
+import './Footer.scss';
 
-class Footer extends React.Component {
+class NavBar extends React.Component {
+
+  state = {
+    links: [
+      { path: '/', title: 'Home' },
+      { path: '/products', title: 'Products' },
+      { path: '/faq', title: 'FAQ' },
+      { path: 'contact', title: 'Contact' },
+    ],
+  }
 
   render() {
+    const { links } = this.state;
+
     return (
-      <div>
-        <h2>All rights reserved</h2>
-        <Link to='/'>Home</Link>
-        <Link to='/products'>Products</Link>
-        <Link to='/faq'>FAQ</Link>
-        <Link to='/contact'>Contact</Link>
-      </div>
+      <nav className='footer'>
+        <p>All rights Reserved</p>
+        <MainMenu links={links} />
+      </nav>
     );
   }
 }
 
-export default Footer;
+export default NavBar;

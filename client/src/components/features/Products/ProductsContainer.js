@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getProducts, getRequest, loadProductsRequest, getNumberOfProducts } from '../../../redux/productsRedux';
+import { getProducts, getRequest, loadProductsRequest, getNumberOfProducts, resetRequest } from '../../../redux/productsRedux';
 import Products from './Products';
 
 const mapStateToProps = state => ({
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   loadProducts: () => dispatch(loadProductsRequest()),
+  resetRequestStatus: () => dispatch(resetRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

@@ -8,11 +8,10 @@ exports.getProducts = async (req, res) => {
   }
 }
 
-exports.getProduct = async (req, res) => {
-  Product.findOne({ id: req.params.id }).exec((err, product) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ product });
-  });
-}
+exports.getSingleProduct = async (req, res) => {
+  try {
+    res.status(200).json(await Product.findOne({ id: req.params.id }));
+  } catch (error) {
+    res.status(500).json(err);
+  }
+};

@@ -7,7 +7,8 @@ import Alert from '../../common/Alert/Alert';
 class Products extends React.Component {
 
   componentDidMount() {
-    const { loadProducts } = this.props;
+    const { loadProducts, resetRequestStatus } = this.props;
+    resetRequestStatus();
     loadProducts();
   }
 
@@ -25,7 +26,7 @@ class Products extends React.Component {
           <Spinner />
         </div>
       );
-    } else if (request.pending === false && request.error != null) {
+    } else if (request.pending === false && request.error !== null) {
       return (
         <div>
           <Alert variant="error">{request.error})</Alert>
@@ -53,6 +54,7 @@ Products.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired
     })
   ),
   loadProducts: PropTypes.func.isRequired,

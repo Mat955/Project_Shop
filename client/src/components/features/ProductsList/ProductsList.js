@@ -1,11 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import ProductsSummary from '../ProductSummary/ProductSummary';
+import ProductSummary from '../ProductSummary/ProductSummary';
 
 const ProductsList = ({ products }) => (
   <div>
     <section className="products-list">
-      {products.map(product => <ProductsSummary key={product.id}{...product} />)}
+      {products.map(product => <ProductSummary key={product.id}{...product} />)}
     </section>
   </div>
 );
@@ -16,6 +16,7 @@ ProductsList.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired
     })
   ),
 };
