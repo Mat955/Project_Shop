@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
+import Button from '../../common/Button/Button';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import './ProductSummary.scss'
 import HtmlBox from '../../common/HtmlBox/HtmlBox';
@@ -9,12 +9,9 @@ import HtmlBox from '../../common/HtmlBox/HtmlBox';
 const ProductSummary = ({ id, photo, title, content }) => (
   <article className="product-summary">
     <SmallTitle>{title}</SmallTitle>
-    <p>Author: {photo}</p>
+    <img src={photo} alt="" />
     <HtmlBox>{content}</HtmlBox>
-    <Button variant="primary">
-      <Link to={`/products/${id}`}>
-        More Information
-    </Link></Button>
+    <Button variant="primary"><Link to={`/products/${id}`}>More Information</Link></Button>
   </article>
 );
 

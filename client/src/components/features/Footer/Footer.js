@@ -18,7 +18,7 @@ class NavBar extends React.Component {
 
     return (
       <nav className='footer'>
-        <p>All rights Reserved</p>
+        <p>Mateusz Lewartowski | All Rights Reserved</p>
         <MainMenu links={links} />
       </nav>
     );

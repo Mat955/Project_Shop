@@ -8,7 +8,7 @@ import './Alert.scss';
 const Alert = ({ variant = '', children, ...otherProps }) => {
 
   const icon = () => {
-    switch(variant) {
+    switch (variant) {
       case 'info':
         return <MdInfoOutline />
       case 'success':
