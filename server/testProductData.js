@@ -38,7 +38,7 @@ const loadProductsData = async () => {
       photo: 'dupa2',
       title: '10 Brilliant Small Bussiness Ideas',
       content: 'Oh... It won\'t be so easy. I won\'t give you a list. <i>But... I\'m going to give you some tips that will surely help you on the road.</i> So, let\'s get started!',
-    }
+    },
   ];
 
   try {

@@ -7,6 +7,7 @@ export const getRequest = ({ products }) => products.request;
 export const getNumberOfProducts = ({ products }) => products.data.length;
 export const getSingleProduct = ({ products }) => products.singleProduct;
 export const getPages = ({ products }) => Math.ceil(products.amount / products.productsPerPage);
+export const getPresentPage = ({ products }) => products.presentPage;
 
 /* ACTIONS */
 const reducerName = 'products';
@@ -14,22 +15,23 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 export const LOAD_PRODUCTS = createActionName('LOAD_PRODUCTS');
 export const LOAD_SINGLE_PRODUCT = createActionName('LOAD_SINGLE_PRODUCT');
-export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
 export const START_REQUEST = createActionName('START_REQUEST');
 export const END_REQUEST = createActionName('END_REQUEST');
 export const ERROR_REQUEST = createActionName('ERROR_REQUEST');
+export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
 
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
 export const loadSingleProduct = payload => ({ payload, type: LOAD_SINGLE_PRODUCT });
-export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 export const errorRequest = error => ({ error, type: ERROR_REQUEST });
+export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 
 /* INITIAL STATE */
 
 const initialState = {
   data: [],
+  amount: 0,
   singlePost: {
     id: '',
     title: '',
@@ -41,9 +43,6 @@ const initialState = {
     error: null,
     success: null,
   },
-  amount: 0,
-  productsPerPage: 10,
-  presentPage: 1,
 };
 
 /* THUNKS */
@@ -78,18 +77,14 @@ export const loadSingleProductRequest = id => {
 
 export const loadProductsByPageRequest = (page) => {
   return async dispatch => {
-
     dispatch(startRequest());
     try {
 
-      const productsPerPage = 10;
-
+      const productsPerPage = 3;
       const startAt = (page - 1) * productsPerPage;
       const limit = productsPerPage;
 
       let res = await axios.get(`${API_URL}/products/range/${startAt}/${limit}`);
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-
       const payload = {
         products: res.data.products,
         amount: res.data.amount,

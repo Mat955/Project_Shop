@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getProducts, getRequest, getPages, loadProductsByPageRequest, getNumberOfProducts } from '../../../redux/productsRedux';
+import { getProducts, getRequest, loadProductsByPageRequest, getPages, getNumberOfProducts, getPresentPage } from '../../../redux/productsRedux';
 import Products from './Products';
 
 const mapStateToProps = state => ({
@@ -7,10 +7,11 @@ const mapStateToProps = state => ({
   request: getRequest(state),
   numberOfProducts: getNumberOfProducts(state),
   pages: getPages(state),
+  presentPage: getPresentPage(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadProductsByPage: (page) => dispatch(loadProductsByPageRequest(page)),
+  loadProductsByPage: (page, productsPerPage) => dispatch(loadProductsByPageRequest(page, productsPerPage)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

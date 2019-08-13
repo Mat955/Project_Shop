@@ -7,7 +7,7 @@ const ProductsPage = () => (
   <div>
     <PageTitle>Products List</PageTitle>
     <ProductsCounter />
-    <Products />
+    <Products pagination={true} productsPerPage={3} initialPage={1} />
   </div>
 );
 

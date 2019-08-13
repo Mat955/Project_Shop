@@ -5,25 +5,29 @@ import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 import Pagination from '../../common/Pagination/Pagination';
 
+
 class Products extends React.Component {
 
   componentDidMount() {
-    const { loadProducts } = this.props;
-    loadProducts();
+    const { loadProductsByPage, productsPerPage, initialPage } = this.props;
+    loadProductsByPage(initialPage || 1, productsPerPage);
   }
 
-  loadProductsByPage = (page) => {
-    const { loadProductsByPage } = this.props;
-    loadProductsByPage(page);
+  loadProductsPage = (page) => {
+    const { loadProductsByPage, productsPerPage } = this.props;
+    loadProductsByPage(page, productsPerPage);
   }
 
   render() {
-    const { products, request, numberOfProducts } = this.props;
-    if (request.pending === false && request.success === true && numberOfProducts > 0) {
+    let { products, request, pages, presentPage, pagination } = this.props;
+    const { loadProductsPage } = this;
+    if (pagination === undefined) {
+      pagination = true;
+    } if (request.pending === false && request.success === true && products.length) {
       return (
         <div>
           <ProductsList products={products} />
-          <Pagination pages={10} onPageChange={(page) => { console.log(page) }} />
+          {pagination && <Pagination pages={pages} initialPage={presentPage} onPageChange={loadProductsPage} />}
         </div>
       );
     } else if (request.pending === true && request.success === null) {
@@ -38,7 +42,7 @@ class Products extends React.Component {
           <Alert variant="error">{request.error}</Alert>
         </div>
       );
-    } else if (request.pending === false && request.success === true && numberOfProducts === 0) {
+    } else if (request.pending === false && request.success === true && products.length === 0) {
       return (
         <div>
           <Alert variant="info">0 products</Alert>
@@ -63,7 +67,7 @@ Products.propTypes = {
       photo: PropTypes.string.isRequired
     })
   ),
-  loadProducts: PropTypes.func.isRequired,
+  loadProductsByPage: PropTypes.func.isRequired,
 };
 
 export default Products;

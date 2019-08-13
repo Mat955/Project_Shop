@@ -1,10 +1,11 @@
 import React from 'react';
+import PageTitle from '../../common/PageTitle/PageTitle';
+import Products from '../../features/Products/ProductsContainer';
 
 const HomePage = () => (
   <div>
-    <h1>
-      Home
-    </h1>
+    <PageTitle>FC Barcelona Shop</PageTitle>
+    <Products pagination={false} />
   </div>
 );
 

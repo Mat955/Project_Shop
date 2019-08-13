@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
-class ProductsCounter extends React.Component {
-
-  componentDidMount() {
-    const { loadProducts } = this.props;
-    loadProducts();
-  }
+class ProductsCounter extends Component {
 
   render() {
-    const { numberOfProducts } = this.props;
+    const { products } = this.props;
 
-    return (
-      <div>
-        <h2>
-          {numberOfProducts > 0 ? 'Products amount: ' + numberOfProducts : '0 Products'}
-        </h2>
-      </div>
-    );
+    if (products) {
+      return (
+        <div>
+          <h2>Products Amount: {products}</h2>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <p>Waiting for data....</p>
+        </div>
+      )
+    }
   }
+};
+
+ProductsCounter.propTypes = {
+  products: PropTypes.number,
 };
 
 export default ProductsCounter;
