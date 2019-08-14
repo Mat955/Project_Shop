@@ -9,6 +9,7 @@ import Faq from './components/pages/FAQ/FaqPage';
 import Contact from './components/pages/Contact/ContactPage';
 import NotFound from './components/pages/NotFound/NotFoundPage';
 import SinglePage from './components/pages/SingleProduct/SingleProductPage';
+import Basket from './components/pages/Basket/BasketPage';
 
 class App extends React.Component {
 
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route path="/products/:id" exact component={SinglePage} />
           <Route path="/faq" exact component={Faq} />
           <Route path="/contact" exact component={Contact} />
+          <Route path="/basket" exact component={Basket} />
           <Route component={NotFound} />
         </Switch>
       </MainLayout>

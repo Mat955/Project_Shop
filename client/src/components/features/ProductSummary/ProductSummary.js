@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 import Button from '../../common/Button/Button';
 import SmallTitle from '../../common/SmallTitle/SmallTitle';
 import './ProductSummary.scss'
-import HtmlBox from '../../common/HtmlBox/HtmlBox';
 
-const ProductSummary = ({ id, photo, title, content }) => (
-  <article className="product-summary">
+const ProductSummary = ({ id, photo, title, price }) => (
+  <div className="product-summary">
+    <img src={require(`../../../img/${photo}`)} alt="" />
     <SmallTitle>{title}</SmallTitle>
-    <img src={photo} alt="" />
-    <HtmlBox>{content}</HtmlBox>
+    <p className="product-price">Price: {price}$</p>
     <Button variant="primary"><Link to={`/products/${id}`}>More Information</Link></Button>
-  </article>
+  </div>
 );
 
 ProductSummary.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   content: PropTypes.string,
-  photo: PropTypes.string
+  photo: PropTypes.string,
+  price: PropTypes.number,
 };
 
 export default ProductSummary;

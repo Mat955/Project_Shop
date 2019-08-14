@@ -1,0 +1,34 @@
+@import '../../../styles/settings.scss';
+
+.wrapper-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  margin: 0 20% 10% 20%;
+
+  .single-product-img {
+  border-radius: 5px;
+  border-color: grey;
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: 50px auto;
+  }
+
+  .single-product-title {
+  margin: $base-size 0;
+  font-size: $base-size *2;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  color: $color-text;
+  }
+  .single-product-price {
+    text-align: center;
+    font-size: $base-size * 2;
+    font-weight: 500;
+    position: relative;
+    color: $color-text;
+  } 
+}

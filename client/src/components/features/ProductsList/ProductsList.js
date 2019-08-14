@@ -16,7 +16,8 @@ ProductsList.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired
+      photo: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ),
 };

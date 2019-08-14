@@ -1,18 +1,39 @@
 @import '../../../styles/settings.scss';
 
 .product-summary {
-    border-bottom: 1px solid $color-textfield-border;
+    text-align: center;
+    border-color: #6161612a;
+    border-radius: 5px;
     padding: $base-size;
     margin-bottom: $base-size;
-    margin-left: -$base-size;
+    margin-left: $base-size;
     transition: .2s;
     cursor: pointer;
+    width: 20%;
 }
 
 .product-summary:hover {
-    margin-left: -$base-size*2;
-    margin-top: -$base-size / 5;
+    margin-left: -$base-size;
+    margin-top: -$base-size / 3;
     border-radius: $radius;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    padding-left: $base-size * 1.5;
+    padding-left: $base-size * 1;
+}
+
+.products-list {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.product-price {
+    text-align: center;
+    font-size: $base-size * 2;
+    font-weight: 500;
+    position: relative;
+    color: $color-text;
 }

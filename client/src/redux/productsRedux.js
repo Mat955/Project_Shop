@@ -37,6 +37,7 @@ const initialState = {
     title: '',
     content: '',
     author: '',
+    price: '',
   },
   request: {
     pending: false,
@@ -80,7 +81,7 @@ export const loadProductsByPageRequest = (page) => {
     dispatch(startRequest());
     try {
 
-      const productsPerPage = 3;
+      const productsPerPage = 8;
       const startAt = (page - 1) * productsPerPage;
       const limit = productsPerPage;
 

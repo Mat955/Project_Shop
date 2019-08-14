@@ -4,6 +4,7 @@ import ProductsList from '../ProductsList/ProductsList';
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from '../../common/Alert/Alert';
 import Pagination from '../../common/Pagination/Pagination';
+import './Products.scss';
 
 
 class Products extends React.Component {
@@ -23,9 +24,9 @@ class Products extends React.Component {
     const { loadProductsPage } = this;
     if (pagination === undefined) {
       pagination = true;
-    } if (request.pending === false && request.success === true && products.length) {
+    } if (request.pending === false && request.success === true && products) {
       return (
-        <div>
+        <div className="products-page-wrapper">
           <ProductsList products={products} />
           {pagination && <Pagination pages={pages} initialPage={presentPage} onPageChange={loadProductsPage} />}
         </div>
@@ -64,7 +65,8 @@ Products.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired
+      photo: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ),
   loadProductsByPage: PropTypes.func.isRequired,

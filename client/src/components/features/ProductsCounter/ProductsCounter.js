@@ -9,7 +9,7 @@ class ProductsCounter extends Component {
     if (products) {
       return (
         <div>
-          <h2>Products Amount: {products}</h2>
+          <h2>Products Amount Per Page: {products}</h2>
         </div>
       )
     } else {

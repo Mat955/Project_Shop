@@ -11,6 +11,7 @@ class NavBar extends React.Component {
       { path: '/products', title: 'Products' },
       { path: '/faq', title: 'FAQ' },
       { path: 'contact', title: 'Contact' },
+      { path: 'basket', title: 'Basket' }
     ],
   }
 
