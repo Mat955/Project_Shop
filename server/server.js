@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const config = require('./config');
+const path = require('path');
 const app = express();
 const productRoutes = require('./routes/product.routes');
 const mongoose = require('mongoose');
@@ -12,6 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', productRoutes);
 app.use(helmet());
+app.use(express.static(path.join(__dirname, '/../client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
+});
 
 mongoose.connect(config.DB, { useNewUrlParser: true });
 let db = mongoose.connection;

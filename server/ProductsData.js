@@ -179,7 +179,7 @@ const loadProductsData = async () => {
       console.log('Test data has been successfully loaded');
     }
   } catch (err) {
-    console.log('Couldn\'t load test data', err);
+    console.log('Couldn\'t load products data', err);
   }
 
 };

@@ -19,6 +19,14 @@ export const START_REQUEST = createActionName('START_REQUEST');
 export const END_REQUEST = createActionName('END_REQUEST');
 export const ERROR_REQUEST = createActionName('ERROR_REQUEST');
 export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
+export const SORT_BY = createActionName('SORT_BY');
+export const INCREASE_PRODUCT_NUMBER = createActionName('INCREASE_NUMBER_OF_PRODUCT');
+export const DECREASE_PRODUCT_NUMBER = createActionName('DECREASE_PRODUCT_NUMBER')
+export const DELETE_ITEM_FROM_CART = createActionName('DELETE_ITEM_FROM_CART');
+export const ADD_TO_CART = createActionName('ADD_TO_CART');
+export const QTY_MINUS_PRODUCT = createActionName('QTY_MINUS_PRODUCT');
+export const QTY_PLUS_PRODUCT = createActionName('QTY_PLUS_PRODUCT');
+
 
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
@@ -53,7 +61,7 @@ export const loadProductsRequest = () => {
     dispatch(startRequest());
     try {
       let res = await axios.get(`${API_URL}/products`);
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 100));
       dispatch(loadProducts(res.data));
       dispatch(endRequest());
     } catch (e) {
@@ -67,7 +75,6 @@ export const loadSingleProductRequest = id => {
     dispatch(startRequest());
     try {
       let res = await axios.get(`${API_URL}/products/${id}`);
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       dispatch(loadSingleProduct(res.data));
       dispatch(endRequest());
     } catch (e) {
@@ -92,10 +99,8 @@ export const loadProductsByPageRequest = (page) => {
         productsPerPage,
         presentPage: page,
       };
-
       dispatch(loadProductsByPage(payload));
       dispatch(endRequest());
-
     } catch (e) {
       dispatch(errorRequest(e.message));
     }

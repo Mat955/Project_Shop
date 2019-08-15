@@ -1,51 +1,34 @@
 import React from 'react';
 import PageTitle from '../../common/PageTitle/PageTitle';
-import Button from '../../common/Button/Button'
+import ScrollAnimation from 'react-animate-on-scroll';
+import { Button } from 'reactstrap';
+import { Container } from 'reactstrap';
+import './ContactPage.scss';
 
 const ContactPage = () => (
-  <div>
-    <PageTitle>Contact With Us</PageTitle>
-    <div className="contact-header">
-      <h1>Napisz do nas!</h1>
-    </div>
-    <form className="">
-      <div className="">
-        <input type="text" name="name" placeholder="Imię"></input>
+  <Container className="contact-page">
+    <ScrollAnimation animateIn="fadeIn" delay={700}>
+      <PageTitle>Contact With Us</PageTitle>
+      <div className="contact-header">
+        <h1>Send Message and Ask for your product</h1>
       </div>
-      <div className="">
-        <input type="text" name="email" placeholder="Twój email"></input>
-      </div>
-      <div className="">
-        <input type="text" name="subject" placeholder="Tytuł"></input>
-      </div>
-      <div className="">
-        <textarea rows="3" cols="86" name="comment" form="usrform" placeholder="Twoja wiadomość..."></textarea>
-      </div>
-      <Button variant="primary">Wyślij</Button>
-    </form>
-    <div className="">
-      <div className="">
-        <div className="">
-          <div className="">
-            {/* <img src={icon2} alt="place"></img> */}
-          </div>
-          <p className="">ulduaps2</p>
+      <form className="contact-form">
+        <div className="contact-name">
+          <input type="text" name="name" placeholder="Name"></input>
         </div>
-        <div className="">
-          <div className="">
-            {/* <img src={icon3} alt="cellphone"></img> */}
-          </div>
-          <p className="">3123123123</p>
+        <div className="contact-email">
+          <input type="text" name="email" placeholder="Your Email"></input>
         </div>
-        <div className="">
-          <div className="">
-            {/* <img src={icon4} alt="at"></img> */}
-          </div>
-          <p className="">EMAIl</p>
+        <div className="contact-subject">
+          <input type="text" name="subject" placeholder="Title"></input>
         </div>
-      </div>
-    </div>
-  </div>
+        <div className="contact-message">
+          <textarea rows="3" cols="86" name="comment" form="userform" placeholder="Your message"></textarea>
+        </div>
+        <Button className="btn">Send</Button>
+      </form>
+    </ScrollAnimation>
+  </Container>
 );
 
 export default ContactPage;

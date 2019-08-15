@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 
 const Button = ({ variant = '', children, ...otherProps }) => (
-  <button { ...otherProps } className={ `button button--${variant}`}>
-    { children }
+  <button {...otherProps} className={`button button--${variant}`}>
+    {children}
   </button>
 );
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import MainMenu from '../../layout/MainMenu/MainMenu';
+import FooterMenu from '../../layout/FooterMenu/FooterMenu';
 import './Footer.scss';
 
-class NavBar extends React.Component {
+class FooterNav extends React.Component {
 
   state = {
     links: [
@@ -17,12 +17,14 @@ class NavBar extends React.Component {
     const { links } = this.state;
 
     return (
-      <nav className='footer'>
-        <p>Mateusz Lewartowski | All Rights Reserved</p>
-        <MainMenu links={links} />
-      </nav>
+      <footer className='footer'>
+        <div className='footer-text'>
+          <p>Mateusz Lewartowski | All Rights Reserved</p>
+          <FooterMenu links={links} />
+        </div>
+      </footer>
     );
   }
 }
 
-export default NavBar;
+export default FooterNav;

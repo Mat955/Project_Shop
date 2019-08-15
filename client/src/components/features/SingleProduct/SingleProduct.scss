@@ -1,10 +1,6 @@
 @import '../../../styles/settings.scss';
 
 .wrapper-product {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
   margin: 0 20% 10% 20%;
 
   .single-product-img {
@@ -30,5 +26,8 @@
     font-weight: 500;
     position: relative;
     color: $color-text;
-  } 
+  }
+  .homepage-button-store {
+    text-align: center;
+  }
 }

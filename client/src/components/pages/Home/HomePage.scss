@@ -1,0 +1,42 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/animations.scss';
+
+
+.homepage-container {
+  font-family: $font-text;
+  width: 100%;
+  padding-bottom: 40px;
+  overflow: hidden;
+  text-align: center;
+  .homepage-description-container {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #353535;
+    .homepage-title {
+      font-size: $base-size *2;
+      margin: 50px 0 0 0;
+      text-align: left;
+    }  
+  }
+
+  .hompage-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 115px;
+    margin-bottom: 100px;
+    padding-top: 80px;
+    .homepage-barcelona{
+      width: 100%;
+      height: auto;
+      position: relative;
+      transition: opacity 0.5s ease;
+      transform-origin: 100% 50%;
+      animation: squadfly 20s infinite ease;
+    }
+  }
+  .homepage-button-store {
+    margin: 50px;
+  }
+}

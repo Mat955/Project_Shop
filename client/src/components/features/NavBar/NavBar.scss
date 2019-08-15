@@ -1,5 +1,12 @@
+@import '../../../styles/settings.scss';
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
+  height: 88px;
+  align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid black;
+  font-family: $font-header;
+  background: linear-gradient(to right, #edbc00 0%,#004c99 31%,#a70042 65%,#db002c 74%,#ffee00 93%);
 }

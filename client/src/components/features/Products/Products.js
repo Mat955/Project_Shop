@@ -24,7 +24,7 @@ class Products extends React.Component {
     const { loadProductsPage } = this;
     if (pagination === undefined) {
       pagination = true;
-    } if (request.pending === false && request.success === true && products) {
+    } if (request.pending === false && request.success === true && products.length) {
       return (
         <div className="products-page-wrapper">
           <ProductsList products={products} />

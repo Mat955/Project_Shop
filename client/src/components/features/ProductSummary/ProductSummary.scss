@@ -1,6 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .product-summary {
+    overflow: hidden;
     text-align: center;
     border-color: #6161612a;
     border-radius: 5px;
@@ -26,14 +27,42 @@
     align-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
 }
 
 .product-price {
-    text-align: center;
     font-size: $base-size * 2;
     font-weight: 500;
     position: relative;
     color: $color-text;
 }
+
+.widget-header {
+    font-size: 22px;
+    letter-spacing: 1.54px;
+  }
+  
+  .sort-button-list {
+    list-style-type: none;
+    font-size: 18px;
+    padding: 0;
+    border-bottom: 1px solid #b2b2b2;
+  }
+  
+  .sort-button {
+    color: #000000;
+    font-weight: 400;
+    opacity: .7;
+    margin: 14px 0 14px;
+    display: inline-block;
+  }
+  
+  .sort-button:hover {
+    opacity: 1;
+  }
+  
+  /* Product box styles */
+  
+  .product-list [class^="col-"] {
+    padding: 0 10px 20px;
+  }
+  

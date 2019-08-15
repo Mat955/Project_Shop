@@ -6,6 +6,9 @@ import Alert from '../../common/Alert/Alert';
 import HtmlBox from '../../common/HtmlBox/HtmlBox';
 import './SingleProduct.scss';
 import Button from '../../common/Button/Button';
+import { Container, Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class SingleProduct extends React.Component {
 
@@ -18,13 +21,21 @@ class SingleProduct extends React.Component {
     const { singleProduct, request } = this.props;
     if (!request.pending && !!request.success && singleProduct) {
       return (
-        <div className="wrapper-product">
-          <h1 className="single-product-title">{singleProduct.title}</h1>
-          <img className="single-product-img" src={require(`../../../img/${singleProduct.photo}`)} alt="" />
-          <HtmlBox>{singleProduct.content}</HtmlBox>
-          <p className="single-product-price">Price: {singleProduct.price}$</p>
-          <Button variant="primary">SHOP NOW</Button>
-        </div>
+        <Container className="wrapper-product">
+          <Row>
+            <ScrollAnimation animateIn="fadeIn" delay={700}>
+              <Col>
+                <h1 className="single-product-title">{singleProduct.title}</h1>
+                <img className="single-product-img" src={require(`../../../images/${singleProduct.photo}`)} alt="" />
+                <HtmlBox>{singleProduct.content}</HtmlBox>
+                <p className="single-product-price">Price: {singleProduct.price}$</p>
+              </Col>
+              <Col lg={4} className="homepage-button-store">
+                <Button variant="primary"><Link to={`/cart`}>BUY NOW</Link></Button>
+              </Col>
+            </ScrollAnimation>
+          </Row>
+        </Container>
       );
     } else if (request.pending || !!request.success) {
       return (

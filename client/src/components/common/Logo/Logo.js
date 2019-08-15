@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import './Logo.scss';
 
 const Logo = ({ links, location }) => (
-  <h1 className="logo">Blog.app</h1>
+  <Link to={`/`}><img src={require('../../../images/logo.png')} alt="logo" /></Link>
 );
 
 export default Logo;
